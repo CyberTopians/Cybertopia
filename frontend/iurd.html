@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Honeypot Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .dashboard-item {
+            width: 300px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Honeypot Dashboard</h1>
+    <div class="dashboard-container">
+        <div class="dashboard-item">
+            <h2>Total Events</h2>
+            <p id="total-events">Loading...</p>
+        </div>
+        <div class="dashboard-item">
+            <h2>Event Types Over Time</h2>
+            <canvas id="event-type-chart"></canvas>
+        </div>
+        <div class="dashboard-item">
+            <h2>Top Source IPs</h2>
+            <ul id="top-ips"></ul>
+        </div>
+    </div>
+    <h2>Recent Events</h2>
+    <table id="recent-events">
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Event Type</th>
+                <th>Source IP</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const data = [
+  {
+    "id": 276493,
+    "event_type": "cowrie.session.closed",
+    "timestamp": "2025-09-27T22:17:38.410305Z",
+    "src_ip": "103.157.25.60",
+    "src_port": null,
+    "username": null,
+    "password": null,
+    "raw": {
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.session.closed",
+      "message": "Connection lost after 2.6 seconds",
+      "session": "c60693d29d4f",
+      "duration": "2.6",
+      "timestamp": "2025-09-27T22:17:38.410305Z"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  },
+  {
+    "id": 276492,
+    "event_type": "cowrie.login.failed",
+    "timestamp": "2025-09-27T22:17:37.151332Z",
+    "src_ip": "103.157.25.60",
+    "src_port": null,
+    "username": "stserver",
+    "password": "stserver123",
+    "raw": {
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.login.failed",
+      "message": "login attempt [stserver/stserver123] failed",
+      "session": "c60693d29d4f",
+      "password": "stserver123",
+      "username": "stserver",
+      "timestamp": "2025-09-27T22:17:37.151332Z"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  },
+  {
+    "id": 276491,
+    "event_type": "cowrie.client.kex",
+    "timestamp": "2025-09-27T22:17:36.085065Z",
+    "src_ip": "103.157.25.60",
+    "src_port": null,
+    "username": null,
+    "password": null,
+    "raw": {
+      "encCS": [
+        "chacha20-poly1305@openssh.com",
+        "aes256-gcm@openssh.com",
+        "aes128-gcm@openssh.com",
+        "aes256-ctr",
+        "aes192-ctr",
+        "aes128-ctr"
+      ],
+      "hassh": "03a80b21afa810682a776a7d42e5e6fb",
+      "macCS": [
+        "hmac-sha2-256-etm@openssh.com",
+        "hmac-sha2-512-etm@openssh.com",
+        "hmac-sha2-256",
+        "hmac-sha2-512"
+      ],
+      "compCS": [
+        "none",
+        "zlib@openssh.com"
+      ],
+      "langCS": [
+        ""
+      ],
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.client.kex",
+      "kexAlgs": [
+        "curve25519-sha256",
+        "curve25519-sha256@libssh.org",
+        "ecdh-sha2-nistp256",
+        "ecdh-sha2-nistp384",
+        "ecdh-sha2-nistp521",
+        "diffie-hellman-group18-sha512",
+        "diffie-hellman-group16-sha512",
+        "diffie-hellman-group-exchange-sha256",
+        "diffie-hellman-group14-sha256",
+        "ext-info-c",
+        "kex-strict-c-v00@openssh.com"
+      ],
+      "keyAlgs": [
+        "ssh-ed25519",
+        "ecdsa-sha2-nistp521",
+        "ecdsa-sha2-nistp384",
+        "ecdsa-sha2-nistp256",
+        "sk-ssh-ed25519@openssh.com",
+        "sk-ecdsa-sha2-nistp256@openssh.com",
+        "rsa-sha2-512",
+        "rsa-sha2-256"
+      ],
+      "message": "SSH client hassh fingerprint: 03a80b21afa810682a776a7d42e5e6fb",
+      "session": "c60693d29d4f",
+      "timestamp": "2025-09-27T22:17:36.085065Z",
+      "hasshAlgorithms": "curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group18-sha512,diffie-hellman-group16-sha512,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,ext-info-c,kex-strict-c-v00@openssh.com;chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr;hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha2-512;none,zlib@openssh.com"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  },
+  {
+    "id": 276490,
+    "event_type": "cowrie.client.version",
+    "timestamp": "2025-09-27T22:17:35.826491Z",
+    "src_ip": "103.157.25.60",
+    "src_port": null,
+    "username": null,
+    "password": null,
+    "raw": {
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.client.version",
+      "message": "Remote SSH version: SSH-2.0-libssh_0.11.1",
+      "session": "c60693d29d4f",
+      "version": "SSH-2.0-libssh_0.11.1",
+      "timestamp": "2025-09-27T22:17:35.826491Z"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  },
+  {
+    "id": 276489,
+    "event_type": "cowrie.session.connect",
+    "timestamp": "2025-09-27T22:17:35.825403Z",
+    "src_ip": "103.157.25.60",
+    "src_port": 50810,
+    "username": null,
+    "password": null,
+    "raw": {
+      "dst_ip": "207.154.242.175",
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.session.connect",
+      "message": "New connection: 103.157.25.60:50810 (207.154.242.175:2222) [session: c60693d29d4f]",
+      "session": "c60693d29d4f",
+      "dst_port": 2222,
+      "protocol": "ssh",
+      "src_port": 50810,
+      "timestamp": "2025-09-27T22:17:35.825403Z"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  },
+  {
+    "id": 276488,
+    "event_type": "cowrie.session.closed",
+    "timestamp": "2025-09-27T22:16:25.025193Z",
+    "src_ip": "103.157.25.60",
+    "src_port": null,
+    "username": null,
+    "password": null,
+    "raw": {
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.session.closed",
+      "message": "Connection lost after 1.7 seconds",
+      "session": "02af2af90cf0",
+      "duration": "1.7",
+      "timestamp": "2025-09-27T22:16:25.025193Z"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  },
+  {
+    "id": 276487,
+    "event_type": "cowrie.session.closed",
+    "timestamp": "2025-09-27T22:16:25.005041Z",
+    "src_ip": "103.157.25.60",
+    "src_port": null,
+    "username": null,
+    "password": null,
+    "raw": {
+      "sensor": "HoneyPot",
+      "src_ip": "103.157.25.60",
+      "eventid": "cowrie.session.closed",
+      "message": "Connection lost after 7.8 seconds",
+      "session": "538380e5a40a",
+      "duration": "7.8",
+      "timestamp": "2025-09-27T22:16:25.005041Z"
+    },
+    "reputation": {
+      "ip": "103.157.25.60",
+      "abuse_score": null,
+      "country": null
+    }
+  }
+]
+
+        document.getElementById('total-events').textContent = data.length;
+
+        // Extract event types and count occurrences
+        const eventCounts = {};
+        data.forEach(event => {
+            const eventType = event.event_type;
+            eventCounts[eventType] = (eventCounts[eventType] || 0) + 1;
+        });
+
+        // Prepare data for the chart
+        const eventLabels = Object.keys(eventCounts);
+        const eventData = Object.values(eventCounts);
+
+        // Create the chart (requires Chart.js library)
+        const ctx = document.getElementById('event-type-chart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: eventLabels,
+                datasets: [{
+                    label: 'Event Type Counts',
+                    data: eventData,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Get top source IPs
+        const ipCounts = {};
+        data.forEach(event => {
+            const ip = event.src_ip;
+            ipCounts[ip] = (ipCounts[ip] || 0) + 1;
+        });
+
+        // Sort IPs by count
+        const sortedIps = Object.entries(ipCounts).sort(([, a], [, b]) => b - a);
+
+        // Display top IPs
+        const topIpsList = document.getElementById('top-ips');
+        sortedIps.slice(0, 5).forEach(([ip, count]) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${ip}: ${count}`;
+            topIpsList.appendChild(listItem);
+        });
+
+        // Populate recent events table
+        const recentEventsTableBody = document.querySelector('#recent-events tbody');
+        data.slice(0, 5).forEach(event => {
+            const row = recentEventsTableBody.insertRow();
+            const timestampCell = row.insertCell();
+            const eventTypeCell = row.insertCell();
+            const ipCell = row.insertCell();
+            const usernameCell = row.insertCell();
+            const passwordCell = row.insertCell();
+
+            timestampCell.textContent = event.timestamp;
+            eventTypeCell.textContent = event.event_type;
+            ipCell.textContent = event.src_ip;
+            usernameCell.textContent = event.username || '-';
+            passwordCell.textContent = event.password || '-';
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

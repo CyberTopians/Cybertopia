@@ -1,0 +1,55 @@
+<div class="container">
+<div class="hero">
+  <div class="hero-content">
+<h1> Catching Hackers <br> Before They <br> Catch You</h1>
+
+</div>
+</div>
+
+<div class = "team">
+<h2>Our Team</h2>
+<div class="card overflow-x-auto">
+  <p-organization-chart [value]="data" [collapsible]="true">
+    <ng-template let-node pTemplate="person">
+      <div class="my-node-box">
+        <img [src]="node.data.image" class="avatar" />
+        <div class="node-name">{{ node.data.name }}</div>
+        <div class="node-title">{{ node.data.title }}</div>
+      </div>
+    </ng-template>
+  </p-organization-chart>
+</div>
+
+</div>
+
+
+
+
+
+
+ 
+  
+<h2>Our Services</h2>
+
+
+<div class="services">
+
+<div class="mb-4 p-8 flex items-center justify-center" *ngFor="let service of services">
+    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+        <ng-template #header>
+            <img alt="Card" class="w-full" src="../../assets/images/secure.jpg"/>
+        </ng-template>
+        <ng-template #title> {{ service.name }} </ng-template>
+        
+        <p>
+   {{ service.description }}
+        </p>
+        <ng-template #footer>
+            <div class="flex gap-4 mt-1">
+                
+                <p-button label="view" styleClass="gradient-btn w-full" (onClick)="goToSecurity()" />
+            </div>
+        </ng-template>
+    </p-card>
+</div>
+</div>

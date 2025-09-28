@@ -1,0 +1,13 @@
+<div *ngIf="logs.length > 0; else noLogs">
+  <ul>
+    <li *ngFor="let log of logs">
+      <strong>User ID:</strong> {{ log.ID }}  
+      <br>
+      <small>Time: {{ log.time }}</small>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noLogs>
+  <p>No security logs available.</p>
+</ng-template>

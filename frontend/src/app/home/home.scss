@@ -1,0 +1,198 @@
+
+//h1{
+//       // font-family: Arial, sans-serif;
+//
+//  font-size: clamp(28px, 4vw, 46px);
+//  line-height: 1.02;
+//  font-weight: 800;
+//  letter-spacing: -0.6px;
+//  color: #000000; /* plain white */
+//  margin-bottom: 6px;
+//  /* neon glow */
+//  text-shadow:
+//    0 0 10px rgba(110,230,255,0.35),
+//    0 0 24px rgba(138,92,255,0.25);
+//
+//}
+
+
+
+.container{
+    min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(
+    135deg,              /* angle: diagonal */
+    #5a189a 0%,          /* dark warm purple */
+    #1e3a8a 50%,         /* deep blue */
+    #000000 100%         /* black */
+  );
+  color: white;
+}
+
+
+
+
+
+    /* full-screen hero */
+    .hero {
+      position: relative;
+      height: 100vh; /* full screen */
+      width: 100%;
+      background: url("../../assets/images/server security.jpg") no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 60px;
+    }
+
+    /* dark overlay for better text contrast */
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.45); /* semi-transparent dark layer */
+    }
+
+        .hero-content {
+          position: absolute;
+      top: 40px;    /* distance from top */
+      left: 40px;   /* distance from left */
+      z-index: 1;
+    }
+
+  .hero-content h1 {
+  font-size: clamp(36px, 7vw, 72px); /* bigger than before */
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  text-shadow:
+    0 0 10px rgba(110,230,255,0.35),
+    0 0 24px rgba(138,92,255,0.25);
+  margin-bottom: 24px;
+}
+
+h2{
+   font-size: clamp(24px, 4vw, 40px);
+  color:#9339f3 ;
+    text-shadow:
+    0 0 10px rgba(110,230,255,0.35),
+    0 0 24px rgba(93, 33, 243, 0.25);
+}
+
+h3{
+font-size: clamp(18px, 3vw, 28px);
+
+}
+
+.team {   
+    padding: 20px;
+}
+
+.p-card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); /* bigger blur, stronger opacity */
+  border-radius: 12px;
+}
+
+.p-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px); /* slight lift */
+}
+.services img {
+  width : 35vw;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.services p {
+  font-size: clamp(10px, 1.9vw, 17px);
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 12px;
+
+}
+
+.p-button.gradient-btn {
+  background: linear-gradient(135deg, #3b82f6, #9333ea); /* blue → purple */
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.p-button.gradient-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #7e22ce);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+::ng-deep .my-node {
+  border-radius: 8px !important;
+  padding: 12px !important;
+  border: 1px solid #ddd !important;
+  text-align: center !important;
+  margin: 15px !important;
+ 
+}
+
+::ng-deep .parent {
+  padding: 6px !important;
+  min-width: 70px !important;
+  background: #7700ff !important;
+
+}
+
+
+::ng-deep .child {
+    background-color: #000000 !important; /* light purple */
+  color: #ffffff !important;
+
+}
+
+::ng-deep .childd{
+ background-color: #cfa1ff !important; /* light purple */
+  color: #000000 !important;
+}
+
+::ng-deep .childdd{
+      background-color: #cfa1ff !important; /* light purple */
+  color: #000000 !important;
+}
+
+::ng-deep .my-node-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 140px;
+  text-align: center;
+  
+
+  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .my-node-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+::ng-deep .my-node-box .node-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+::ng-deep .my-node-box .node-title { //ex: executive
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+
