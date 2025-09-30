@@ -26,4 +26,9 @@ The goal is to **simulate attacks, collect threat intelligence, and visualize it
 
 ---
 
-## 📂 File Structure
+## how to run 
+1. open a terminal for the backend (digitopia)
+2. open another terminal for the frontend (digitopia/frontend)
+3. run npm install in both to download all dependencies
+4. run backend first (npm start)
+5. run frontend in the corresponding terminal (ng serve --open)
