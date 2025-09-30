@@ -1,0 +1,29 @@
+<div *ngIf="logs.length > 0; else noLogs">
+  <ul>
+    <li *ngFor="let log of logs">
+      
+      <small>Time: {{ log.time | date:'dd/MM/yyyy HH:mm:ss' }}</small><br>
+      <small>IP: {{ log.ipAddress }}</small><br>
+      <small>Session: {{ log.sessionID }}</small>
+    </li>
+  </ul>
+  <div class="line-chart">
+    <h2>Sessions per Day</h2>
+    <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
+  </div>
+
+  <!-- Map -->
+<div class="world-map-container">
+  <h2>🌍 Global Attack Heatmap</h2>
+  <div class="map-container">
+    <canvas id="worldMapCanvas"></canvas>
+  </div>
+</div>
+
+</div>
+
+
+
+<ng-template #noLogs>
+  <p>No security logs available.</p>
+</ng-template>
