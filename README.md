@@ -1,6 +1,6 @@
-# Digitopia - Cybersecurity Honeypot Platform
+# Cybertopia - Cybersecurity Honeypot Platform
 
-Digitopia is a comprehensive cybersecurity platform that integrates Cowrie honeypot technology with advanced threat intelligence and visualization capabilities. The platform provides real-time monitoring, attack analysis, and detailed reporting for cybersecurity professionals.
+Cybertopia is a comprehensive cybersecurity platform that integrates Cowrie honeypot technology with advanced threat intelligence and visualization capabilities. The platform provides real-time monitoring, attack analysis, and detailed reporting for cybersecurity professionals.
 
 ## 🚀 Features
 
@@ -49,8 +49,8 @@ Digitopia is a comprehensive cybersecurity platform that integrates Cowrie honey
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/CyberTopians/Digitopia.git
-cd Digitopia
+git clone https://github.com/CyberTopians/Cybertopia.git
+cd Cybertopia
 ```
 
 ### 2. Backend Setup
@@ -78,12 +78,12 @@ ng build
 Create a PostgreSQL database and configure the connection:
 ```bash
 # Create database
-createdb digitopia
+createdb Cybertopia
 
 # Set environment variables
 export DB_HOST=localhost
 export DB_PORT=5432
-export DB_NAME=digitopia
+export DB_NAME=Cybertopia
 export DB_USER=your_username
 export DB_PASSWORD=your_password
 ```
@@ -102,7 +102,7 @@ Create a `.env` file in the root directory:
 ```env
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=digitopia
+DB_NAME=Cybertopia
 DB_USER=your_username
 DB_PASSWORD=your_password
 
@@ -222,7 +222,7 @@ The application uses the following main tables:
 ## 📁 Project Structure
 
 ```
-Digitopia/
+Cybertopia/
 ├── controller/           # Backend controllers
 ├── routes/              # Express.js routes
 ├── frontend/            # Angular frontend application
@@ -255,4 +255,4 @@ For support and questions:
 
 ---
 
-**Digitopia** - Catching Hackers Before They Catch You
+**Cybertopia** - Catching Hackers Before They Catch You
