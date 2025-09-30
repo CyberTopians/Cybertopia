@@ -1,34 +1,59 @@
-# 🛡 Cybersecurity Honeypot & OSINT Dashboard
+# Frontend
 
-## 📌 Overview
-This project deploys a **Cowrie SSH/Telnet honeypot** to capture attacker activity, integrates **AbuseIPDB** to check for malicious IP addresses, uses **OSINT** methods to gather more information, and displays everything in a **web-based dashboard**.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
 
-The goal is to **simulate attacks, collect threat intelligence, and visualize it** for learning and analysis purposes.
+## Development server
 
----
+To start a local development server, run:
 
-## 🚀 Features
-- **Honeypot Simulation:** Using Cowrie to mimic an SSH/Telnet server and log attacker actions.
-- **Threat Intelligence Integration:** Query AbuseIPDB API to identify suspicious IP addresses.
-- **OSINT Enrichment:** Use open-source intelligence tools (Shodan, WHOIS, IPinfo) for extra details.
-- **Dashboard:** Frontend to visualize attack data, IP reputation scores, and geolocation maps.
-- **Attack Simulation:** Penetration tester role to simulate SSH attacks for testing.
+```bash
+ng serve
+```
 
----
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## 🏗 Project Architecture
-1. **Cowrie Honeypot** – Collects logs of attacker commands and connection attempts.
-2. **Log Parser** – Reads JSON logs from Cowrie and extracts IPs, timestamps, and commands.
-3. **AbuseIPDB API Module** – Sends IPs to AbuseIPDB and stores results.
-4. **OSINT Module** – Gathers additional info like hosting provider and location.
-5. **Backend (Flask/Streamlit)** – Handles API calls, data storage, and log retrieval.
-6. **Frontend Dashboard** – Displays data in tables, charts, and maps.
+## Code scaffolding
 
----
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## how to run website 
-1. open a terminal for the backend (digitopia)
-2. open another terminal for the frontend (digitopia/frontend)
-3. run npm install in both to download all dependencies
-4. run backend first (npm start)
-5. run frontend in the corresponding terminal (ng serve --open)
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
