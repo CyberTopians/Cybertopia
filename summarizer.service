@@ -1,0 +1,13 @@
+[Unit]
+Description=SSH Attack Summarizer
+After=network.target postgresql.service
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/root/cowrie-dashboard-backend
+ExecStart=/usr/bin/node /root/cowrie-dashboard-backend/summarizer.js
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

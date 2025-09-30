@@ -1,0 +1,9 @@
+[Service]
+User=cowrie
+Group=cowrie
+Environment="COWRIE_DB_PASSWORD=cybertopia" "COWRIE_DB_HOST=localhost" "COWRIE_LOG_FILE=/home/cowrie/var/log/cowrie/cowrie.json"
+ExecStart=/home/cowrie/cowrie/cowrie-env/bin/python3 /home/cowrie/cowrie/cowrie_json_to_pg.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
