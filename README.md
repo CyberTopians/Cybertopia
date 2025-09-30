@@ -49,7 +49,7 @@ Digitopia is a comprehensive cybersecurity platform that integrates Cowrie honey
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/CyberTopians/Digitopia.git
 cd Digitopia
 ```
 
@@ -252,15 +252,6 @@ For support and questions:
 - Create an issue in the repository
 - Contact the development team
 - Check the documentation for common issues
-
-## 🔮 Future Enhancements
-
-- Real-time WebSocket notifications
-- Advanced machine learning threat detection
-- Multi-honeypot support (Dionaea, Kippo, etc.)
-- Enhanced visualization with D3.js
-- Mobile application development
-- Integration with SIEM systems
 
 ---
 
