@@ -26,7 +26,7 @@ The goal is to **simulate attacks, collect threat intelligence, and visualize it
 
 ---
 
-## how to run 
+## how to run website 
 1. open a terminal for the backend (digitopia)
 2. open another terminal for the frontend (digitopia/frontend)
 3. run npm install in both to download all dependencies
