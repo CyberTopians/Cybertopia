@@ -1,0 +1,13 @@
+[Unit]
+Description=Cowrie Dashboard Backend
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/cowrie-dashboard-backend
+ExecStart=/usr/bin/node /root/cowrie-dashboard-backend/index.js
+Restart=always
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
