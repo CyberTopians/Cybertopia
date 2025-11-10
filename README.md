@@ -1,4 +1,4 @@
-# Cybertopia - Cybersecurity Honeypot Platform
+# Cybertopia - Cybersecurity Honeypot Platform  “Forked from the Cybertopia organization — includes my core contributions
 
 Cybertopia is a comprehensive cybersecurity platform that integrates Cowrie honeypot technology with advanced threat intelligence and visualization capabilities. The platform provides real-time monitoring, attack analysis, and detailed reporting for cybersecurity professionals.
 
